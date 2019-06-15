@@ -2,6 +2,7 @@ package com.herve.videomail.user.RestServices;
 
 import com.herve.videomail.user.Documents.User;
 import com.herve.videomail.user.Services.UserService;
+import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,24 @@ public class UserRestService {
         return userService.findAll();
     }
 
-    @PostMapping(path="/saveuser",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @DeleteMapping("/user/delete/{id}")
+    @Transactional
+    public String delete(@PathVariable(value="id") ObjectId id){
+
+        userService.delete(id);
+
+        return "User Deleted";
+    }
+
+    @PutMapping(path="/user/modify/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @Transactional
+    public User modify(@PathVariable(value="id")ObjectId id,@RequestBody User user){
+        return userService.modify(id,user);
+    }
+
+    @PostMapping(path="/user/save",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @Transactional
     public User save(@RequestBody User user){

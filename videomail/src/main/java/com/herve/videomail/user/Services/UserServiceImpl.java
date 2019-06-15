@@ -45,6 +45,21 @@ public class UserServiceImpl implements UserService{
         return userRepository.findAll();
     }
 
+    @Override
+    public void delete(String login){
+        userRepository.delete(findByLogin(login));
+    }
+
+    @Override
+    public User modify(ObjectId id,User user){
+        User u = findById(id);
+        u.setLogin(user.getLogin());
+        u.setName(user.getName());
+        u.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
+        return userRepository.save(u);
+    }
+
 
     @Override
     @Transactional(readOnly = false)

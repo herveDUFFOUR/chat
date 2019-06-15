@@ -12,6 +12,8 @@ public interface UserService {
     User findByLogin(String login);
     User findByLoginAndPassword(String login,String password);
     Collection<User> findAll();
+    User modify(ObjectId id,User user);
     User saveOrUpdate(User user);
+    void delete(String login);
     void delete(ObjectId id);
 }
