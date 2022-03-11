@@ -24,6 +24,9 @@ public class User {
     @DBRef
     private List<Message> messages;
 
+    @DBRef(lazy = false)
+    private List<Role> roles;
+
     public ObjectId getId() {
         return id;
     }
@@ -64,5 +67,12 @@ public class User {
         this.messages = messages;
     }
 
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
 }

@@ -10,7 +10,6 @@ public interface UserService {
 
     User findById(ObjectId id);
     User findByLogin(String login);
-    User findByLoginAndPassword(String login,String password);
     Collection<User> findAll();
     User modify(ObjectId id,User user);
     User saveOrUpdate(User user);
