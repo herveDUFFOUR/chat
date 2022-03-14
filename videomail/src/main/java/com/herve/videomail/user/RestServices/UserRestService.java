@@ -1,7 +1,5 @@
 package com.herve.videomail.user.RestServices;
 
-import com.herve.videomail.token.JwtRequest;
-import com.herve.videomail.token.JwtResponse;
 import com.herve.videomail.user.Documents.User;
 import com.herve.videomail.SecurityService.JwtUserDetailsService;
 import com.herve.videomail.user.Services.UserService;
@@ -34,11 +32,8 @@ public class UserRestService {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private JwtTokenUtil jwtTokenUtil;
-
-    @Autowired
     private JwtUserDetailsService jwtUserDetailsService;
-
+/*
     @PostMapping("/auth/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest request) throws Exception{
 
@@ -53,7 +48,7 @@ public class UserRestService {
 
         return ResponseEntity.ok(HttpStatus.OK);
     }
-
+*/
     @GetMapping("/user/{login}")
     public ResponseEntity<User> findByLogin(@PathVariable(value = "login") String login){
         logger.info("findByLogin service OK");

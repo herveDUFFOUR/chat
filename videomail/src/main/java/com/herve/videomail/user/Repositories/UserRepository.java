@@ -9,4 +9,6 @@ public interface UserRepository extends MongoRepository<User, ObjectId> , UserRe
 
     @Query("{login:'?0'}")
     User findCustomByLogin(String login);
+
+    User insert(User user);
 }
