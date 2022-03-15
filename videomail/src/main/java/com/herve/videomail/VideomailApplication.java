@@ -31,9 +31,7 @@ public class VideomailApplication {
 	CommandLineRunner init(UserRepository userRepository, RoleRepository roleRepository){
 
 		return args -> {
-			User user = userRepository.findCustomByLogin("sebastien");
-			System.out.println(user);
-/*
+
 			List<Role> roles = new ArrayList<>();
 
 			Role role = new Role();
@@ -51,7 +49,23 @@ public class VideomailApplication {
 
             userRepository.insert(user1);
 
- */
+			User user2 = new User();
+			user2.setLogin("claude");
+			user2.setName("claude");
+			user2.setPassword(new BCryptPasswordEncoder().encode("claude"));
+			user2.setRoles(roles);
+
+			userRepository.insert(user2);
+
+			User user3 = new User();
+			user3.setLogin("sebastien");
+			user3.setName("sebastien");
+			user3.setPassword(new BCryptPasswordEncoder().encode("sebastien"));
+			user3.setRoles(roles);
+
+			userRepository.insert(user3);
+
+
 		};
 	}
 
