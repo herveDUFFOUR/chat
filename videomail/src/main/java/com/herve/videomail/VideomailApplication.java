@@ -31,7 +31,7 @@ public class VideomailApplication {
 	CommandLineRunner init(UserRepository userRepository, RoleRepository roleRepository){
 
 		return args -> {
-
+/*
 			List<Role> roles = new ArrayList<>();
 
 			Role role = new Role();
@@ -65,7 +65,7 @@ public class VideomailApplication {
 
 			userRepository.insert(user3);
 
-
+*/
 		};
 	}
 

@@ -90,7 +90,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .sign(Algorithm.HMAC256("antoinette"));
 
         response.addHeader("Authorization",jwt);
-        //response.addHeader("Access-Control-Expose-Headers","Authorization");
+        response.addHeader("Access-Control-Expose-Headers","Authorization");
     }
 
 

@@ -49,7 +49,7 @@ public class JwtAutorizationFilter extends OncePerRequestFilter {
 
         String token = request.getHeader("Authorization");
 
-        if(StringUtils.isNotEmpty(token) && token.startsWith("Bearer")){
+        if(!token.substring(7).equals("null") && token.startsWith("Bearer")){
 
             try{
 
